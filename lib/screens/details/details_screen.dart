@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:reexamcore/model/model_class.dart';
@@ -15,16 +16,30 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   String? path;
   GlobalKey<FormState> formkey = GlobalKey();
-  TextEditingController txtGrid = TextEditingController();
   TextEditingController txtName = TextEditingController();
-  TextEditingController txtStd = TextEditingController();
+  TextEditingController txtQty = TextEditingController();
+  TextEditingController txtPrice = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Students"),
+
+        title: const Text(
+          "Item Details",
+          style: TextStyle(color: Colors.white),
+        ),
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
+        backgroundColor: const Color(0xff1fba89),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -39,43 +54,44 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   children: [
                     path == null
                         ? const CircleAvatar(
-                      backgroundColor: Colors.black,
-                      maxRadius: 60,
-                      child: Icon(Icons.person),
-                    )
+                            backgroundColor: Color(0xff1fba89),
+                            maxRadius: 60,
+                            child: Icon(
+                              Icons.card_travel,
+                              size: 40,
+                              color: Colors.white,
+                            ),
+                          )
                         : CircleAvatar(
-                      backgroundImage: FileImage(File(path!)),
-                      maxRadius: 60,
-                    ),
+                            backgroundImage: FileImage(File(path!)),
+                            maxRadius: 60,
+                          ),
                     IconButton.filled(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateColor.resolveWith(
+                          (states) => Colors.white,
+                        ),
+                      ),
                       onPressed: () async {
                         ImagePicker picker = ImagePicker();
                         XFile? image =
-                        await picker.pickImage(source: ImageSource.gallery);
+                            await picker.pickImage(source: ImageSource.gallery);
                         setState(() {
                           path = image!.path;
                         });
                       },
-                      icon: const Icon(Icons.add),
+                      icon: const Icon(
+                        Icons.add,
+                        color: Color(0xff1fba89),
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 20),
                 TextFormField(
                   decoration: const InputDecoration(
-                      labelText: " Enter The GrId", border: OutlineInputBorder()),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please Enter GrId";
-                    }
-                    return null;
-                  },
-                  controller: txtGrid,
-                ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  decoration: const InputDecoration(
-                      labelText: " Enter The Name", border: OutlineInputBorder()),
+                      labelText: " Enter The Name",
+                      border: OutlineInputBorder()),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please Enter Name";
@@ -87,27 +103,40 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 const SizedBox(height: 20),
                 TextFormField(
                   decoration: const InputDecoration(
-                      labelText: " Enter The Standard",
+                      labelText: " Enter The Qty",
                       border: OutlineInputBorder()),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "Please Enter Standard";
+                      return "Please Enter Qty";
                     }
                     return null;
                   },
-                  controller: txtStd,
+                  controller: txtQty,
+                ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  decoration: const InputDecoration(
+                      labelText: " Enter The Price",
+                      border: OutlineInputBorder()),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please Enter Price";
+                    }
+                    return null;
+                  },
+                  controller: txtPrice,
                 ),
                 const SizedBox(height: 20),
                 InkWell(
                   onTap: () {
                     if (formkey.currentState!.validate()) {
                       if (path != null) {
-                        StudentModel data = StudentModel(
-                            grid: txtGrid.text,
+                        ItemModel data = ItemModel(
                             name: txtName.text,
-                            std: txtStd.text,
+                            qty: txtQty.text,
+                            price: txtPrice.text,
                             image: path);
-                        g1.studentList.add(data);
+                        g1.itemList.add(data);
                         Navigator.pop(context);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -124,10 +153,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     alignment: Alignment.center,
                     width: MediaQuery.sizeOf(context).width * 0.6,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: const Color(0xff1fba89),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Text("Save"),
+                    child: const Text(
+                      "Save",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
                   ),
                 ),
               ],

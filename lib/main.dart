@@ -5,7 +5,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: routs,
+      routes: myRouts,
     ),
   );
 }

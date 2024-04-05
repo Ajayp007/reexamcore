@@ -1,5 +1,12 @@
-class StudentModel {
-  String? name, grid, std, image;
+class ItemModel {
+  String? name, qty, image, price;
 
-  StudentModel({this.name, this.grid, this.std, this.image});
+  ItemModel({this.name, this.qty, this.price, this.image});
+}
+class Personal
+{
+  String? cName,cMobile,cAdd;
+
+  Personal({ this.cName,this.cMobile,this.cAdd});
+
 }
