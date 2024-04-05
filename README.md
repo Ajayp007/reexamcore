@@ -1,16 +1,18 @@
-# reexamcore
+#Exam App UI
 
-A new Flutter project.
+1.First HomeScreen Created And Click On The Edit .
 
-## Getting Started
+2.Secound Screen Is Edit Screen Which You Want Some Edit Some Details.
 
-This project is a starting point for a Flutter application.
+3.In HomeScreen Also Click on button you can add student data.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Thank You
+<p>
+  <img src="https://github.com/Ajayp007/reexamcore/assets/156168895/3476af8c-993c-43de-8123-e52e4d0b8ac1" height="600",width="300">
+  <img src="https://github.com/Ajayp007/reexamcore/assets/156168895/368b1a14-1c48-422a-bfde-c5c703d320c6" height="600",width="300">
+  <img src="https://github.com/Ajayp007/reexamcore/assets/156168895/8164fc06-77fb-47a3-8a6e-ff566ba8db73" height="600",width="300">
+  <img src="https://github.com/Ajayp007/reexamcore/assets/156168895/c42d86ab-32e7-4a1b-9bdf-0dfc05581a0e" height="600",width="300">
+  <img src="https://github.com/Ajayp007/reexamcore/assets/156168895/126ac1d9-5159-49d8-9ec4-507937491d6e" height="600",width="300">
+   
+</p> 
+https://github.com/Ajayp007/reexamcore/assets/156168895/9084be7a-fadf-4342-b6a6-42d98aae21c6
